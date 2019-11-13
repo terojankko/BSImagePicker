@@ -30,6 +30,11 @@ public protocol BSImagePickerSettings {
     Max number of images user can select
     */
     var maxNumberOfSelections: Int { get set }
+
+    /**
+    Max number of bytes user can select
+    */
+    var maxNumberOfBytes: Int { get set }
     
     /**
     Character to use for selection. If nil, selection number will be used

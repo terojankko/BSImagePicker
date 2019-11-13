@@ -30,7 +30,8 @@ final class PhotosViewController : UICollectionViewController {
     var cancelClosure: ((_ assets: [PHAsset]) -> Void)?
     var finishClosure: ((_ assets: [PHAsset]) -> Void)?
     var selectLimitReachedClosure: ((_ selectionLimit: Int) -> Void)?
-    
+    var totalBytesReachedClosure: ((_ totalBytesLimit: Int) -> Void)?
+
     var doneBarButton: UIBarButtonItem?
     var cancelBarButton: UIBarButtonItem?
     var albumTitleView: UIButton?
@@ -42,7 +43,8 @@ final class PhotosViewController : UICollectionViewController {
     private var albumsDataSource: AlbumTableViewDataSource
     private let cameraDataSource: CameraCollectionViewDataSource
     private var composedDataSource: ComposedCollectionViewDataSource?
-    private var assetStore: AssetStore
+
+    var assetStore: AssetStore
     
     let settings: BSImagePickerSettings
     
@@ -219,7 +221,7 @@ final class PhotosViewController : UICollectionViewController {
         fetchOptions.sortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: false)
         ]
-        // fetchOptions.predicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
+        //fetchOptions.predicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
         initializePhotosDataSourceWithFetchResult(PHAsset.fetchAssets(in: album, options: fetchOptions))
     }
     
@@ -286,7 +288,7 @@ extension PhotosViewController {
 
             // Call deselection closure
             deselectionClosure?(asset)
-        } else if assetStore.count < settings.maxNumberOfSelections { // Select
+        } else if assetStore.count < settings.maxNumberOfSelections && (assetStore.totalBytesSelected + asset.fileSizeOnDisk) < settings.maxNumberOfBytes { // Select
             // Select asset if not already selected
             assetStore.append(asset)
 
@@ -306,6 +308,8 @@ extension PhotosViewController {
             selectionClosure?(asset)
         } else if assetStore.count >= settings.maxNumberOfSelections {
             selectLimitReachedClosure?(assetStore.count)
+        } else if (assetStore.totalBytesSelected + asset.fileSizeOnDisk) >= settings.maxNumberOfBytes {
+            totalBytesReachedClosure?(assetStore.totalBytesSelected)
         }
 
         return false

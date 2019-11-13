@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2019 Joakim Gyllström
+// Copyright (c) 2018 Joakim Gyllström
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,46 +20,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
-import Photos
+import XCTest
 
-class AssetStore {
-    private(set) var assets: [PHAsset]
-
-    init(assets: [PHAsset] = []) {
-        self.assets = assets
+class Tests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
-    var count: Int {
-        return assets.count
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
-
-    func contains(_ asset: PHAsset) -> Bool {
-        return assets.contains(asset)
+    
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func append(_ asset: PHAsset) {
-        guard contains(asset) == false else { return }
-        assets.append(asset)
-    }
-
-    func remove(_ asset: PHAsset) {
-        guard let index = assets.firstIndex(of: asset) else { return }
-        assets.remove(at: index)
-    }
-
-    var totalBytesSelected: Int {
-        assets.map({$0.fileSizeOnDisk}).reduce(0, +)
-    }
-}
-
-extension PHAsset {
-    var fileSizeOnDisk: Int {
-        let resources = PHAssetResource.assetResources(for: self)
-        if let resource = resources.first, let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong, let sizeOnDisk = Int(exactly: Int64(bitPattern: UInt64(unsignedInt64))) {
-            return sizeOnDisk
-        } else {
-            return 0
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
         }
     }
+    
 }

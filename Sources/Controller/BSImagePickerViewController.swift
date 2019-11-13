@@ -177,7 +177,19 @@ extension BSImagePickerViewController: BSImagePickerSettings {
             settings.maxNumberOfSelections = newValue
         }
     }
-    
+
+    /**
+     See BSImagePicketSettings for documentation
+     */
+    @objc public var maxNumberOfBytes: Int {
+        get {
+            return settings.maxNumberOfBytes
+        }
+        set {
+            settings.maxNumberOfBytes = newValue
+        }
+    }
+
     /**
      See BSImagePicketSettings for documentation
      */

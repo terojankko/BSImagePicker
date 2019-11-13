@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2019 Joakim Gyllström
+// Copyright (c) 2018 Joakim Gyllström
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,46 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
-import Photos
+#import <UIKit/UIKit.h>
 
-class AssetStore {
-    private(set) var assets: [PHAsset]
+//! Project version number for BSImageView.
+FOUNDATION_EXPORT double BSImageViewVersionNumber;
 
-    init(assets: [PHAsset] = []) {
-        self.assets = assets
-    }
+//! Project version string for BSImageView.
+FOUNDATION_EXPORT const unsigned char BSImageViewVersionString[];
 
-    var count: Int {
-        return assets.count
-    }
-
-    func contains(_ asset: PHAsset) -> Bool {
-        return assets.contains(asset)
-    }
-
-    func append(_ asset: PHAsset) {
-        guard contains(asset) == false else { return }
-        assets.append(asset)
-    }
-
-    func remove(_ asset: PHAsset) {
-        guard let index = assets.firstIndex(of: asset) else { return }
-        assets.remove(at: index)
-    }
-
-    var totalBytesSelected: Int {
-        assets.map({$0.fileSizeOnDisk}).reduce(0, +)
-    }
-}
-
-extension PHAsset {
-    var fileSizeOnDisk: Int {
-        let resources = PHAssetResource.assetResources(for: self)
-        if let resource = resources.first, let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong, let sizeOnDisk = Int(exactly: Int64(bitPattern: UInt64(unsignedInt64))) {
-            return sizeOnDisk
-        } else {
-            return 0
-        }
-    }
-}
+// In this header, you should import all the public headers of your framework using statements like #import <BSImageView/PublicHeader.h>
