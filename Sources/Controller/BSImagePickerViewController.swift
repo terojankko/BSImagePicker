@@ -165,7 +165,6 @@ open class BSImagePickerViewController : UINavigationController {
 // MARK: ImagePickerSettings proxy
 extension BSImagePickerViewController: BSImagePickerSettings {
 
-
     /**
      See BSImagePicketSettings for documentation
      */
@@ -187,6 +186,18 @@ extension BSImagePickerViewController: BSImagePickerSettings {
         }
         set {
             settings.maxNumberOfBytes = newValue
+        }
+    }
+
+    /**
+    See BSImagePicketSettings for documentation
+    */
+    @objc public var maxFileSize: Int {
+        get {
+            return settings.maxFileSize
+        }
+        set {
+            settings.maxFileSize = newValue
         }
     }
 

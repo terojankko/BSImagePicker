@@ -31,6 +31,7 @@ final class PhotosViewController : UICollectionViewController {
     var finishClosure: ((_ assets: [PHAsset]) -> Void)?
     var selectLimitReachedClosure: ((_ selectionLimit: Int) -> Void)?
     var totalBytesReachedClosure: ((_ totalBytesLimit: Int) -> Void)?
+    var fileTooLargeClosure: ((_ fileSizeLimit: Int) -> Void)?
 
     var doneBarButton: UIBarButtonItem?
     var cancelBarButton: UIBarButtonItem?
@@ -48,7 +49,7 @@ final class PhotosViewController : UICollectionViewController {
     
     let settings: BSImagePickerSettings
     
-    private let doneBarButtonTitle: String = NSLocalizedString("Done", comment: "Done")
+    private let doneBarButtonTitle: String = NSLocalizedString("Add", comment: "Add")
     
     lazy var albumsViewController: AlbumsViewController = {
         let vc = AlbumsViewController()
@@ -96,10 +97,9 @@ final class PhotosViewController : UICollectionViewController {
         doneBarButton?.action = #selector(PhotosViewController.doneButtonPressed(_:))
         cancelBarButton?.target = self
         cancelBarButton?.action = #selector(PhotosViewController.cancelButtonPressed(_:))
-        albumTitleView?.addTarget(self, action: #selector(PhotosViewController.albumButtonPressed(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = cancelBarButton
         navigationItem.rightBarButtonItem = doneBarButton
-        navigationItem.titleView = albumTitleView
+        navigationItem.title = "Camera Roll"
 
         if let album = albumsDataSource.fetchResults.first?.firstObject {
             initializePhotosDataSource(album)
@@ -196,7 +196,14 @@ final class PhotosViewController : UICollectionViewController {
     // MARK: Private helper methods
     func updateDoneButton() {
         if assetStore.assets.count > 0 {
-            doneBarButton = UIBarButtonItem(title: "\(doneBarButtonTitle) (\(assetStore.count))", style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
+            var doneButtonTitle = ""
+            if assetStore.count <= 99 {
+                doneButtonTitle = "\(doneBarButtonTitle) (\(assetStore.count))"
+            } else {
+                doneButtonTitle = "\(doneBarButtonTitle) (99+)"
+            }
+                //"\(doneBarButtonTitle) (\(assetStore.count <= 99 ? assetStore.count : ))"
+            doneBarButton = UIBarButtonItem(title: doneButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         } else {
             doneBarButton = UIBarButtonItem(title: doneBarButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         }
@@ -288,6 +295,8 @@ extension PhotosViewController {
 
             // Call deselection closure
             deselectionClosure?(asset)
+        } else if asset.fileSizeOnDisk > settings.maxFileSize {
+            fileTooLargeClosure?(asset.fileSizeOnDisk)
         } else if assetStore.count < settings.maxNumberOfSelections && (assetStore.totalBytesSelected + asset.fileSizeOnDisk) < settings.maxNumberOfBytes { // Select
             // Select asset if not already selected
             assetStore.append(asset)
@@ -311,7 +320,6 @@ extension PhotosViewController {
         } else if (assetStore.totalBytesSelected + asset.fileSizeOnDisk) >= settings.maxNumberOfBytes {
             totalBytesReachedClosure?(assetStore.totalBytesSelected)
         }
-
         return false
     }
     

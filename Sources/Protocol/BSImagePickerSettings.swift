@@ -35,7 +35,11 @@ public protocol BSImagePickerSettings {
     Max number of bytes user can select
     */
     var maxNumberOfBytes: Int { get set }
-    
+
+    /** maximum file size allowed
+    */
+    var maxFileSize: Int { get set }
+
     /**
     Character to use for selection. If nil, selection number will be used
     */
