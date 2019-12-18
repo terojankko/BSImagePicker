@@ -1,0 +1,4 @@
+REVIEWBOARD_URL = "https://mobile-server.apollo.smartsheet.com/reviews"
+REPOSITORY = "BSImagePicker"
+TRACKING_BRANCH = "origin/master"
+GUESS_FIELDS = "auto"
