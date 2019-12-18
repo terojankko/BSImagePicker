@@ -61,7 +61,6 @@ final class AlbumTableViewDataSource : NSObject, UITableViewDataSource {
         fetchOptions.sortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: false)
         ]
-        // = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
 
         let scale = UIScreen.main.scale
         let imageSize = CGSize(width: 79 * scale, height: 79 * scale)
