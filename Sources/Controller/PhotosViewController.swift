@@ -44,7 +44,6 @@ final class PhotosViewController : UICollectionViewController {
     private var albumsDataSource: AlbumTableViewDataSource
     private let cameraDataSource: CameraCollectionViewDataSource
     private var composedDataSource: ComposedCollectionViewDataSource?
-
     var assetStore: AssetStore
     
     let settings: BSImagePickerSettings
@@ -202,7 +201,6 @@ final class PhotosViewController : UICollectionViewController {
             } else {
                 doneButtonTitle = "\(doneBarButtonTitle) (99+)"
             }
-                //"\(doneBarButtonTitle) (\(assetStore.count <= 99 ? assetStore.count : ))"
             doneBarButton = UIBarButtonItem(title: doneButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         } else {
             doneBarButton = UIBarButtonItem(title: doneBarButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
