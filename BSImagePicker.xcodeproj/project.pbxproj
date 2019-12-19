@@ -17,14 +17,6 @@
 		5569D02521D52B1B00D03631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5569D02321D52B1B00D03631 /* Main.storyboard */; };
 		5569D02721D52B1B00D03631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5569D02621D52B1B00D03631 /* Assets.xcassets */; };
 		5569D02A21D52B1B00D03631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5569D02821D52B1B00D03631 /* LaunchScreen.storyboard */; };
-		559768C821D535DF00B10102 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */; };
-		559768C921D535DF00B10102 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E221D52CAE00386752 /* BSImageView.framework */; };
-		559768CB21D5363A00B10102 /* BSGridCollectionViewLayout.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		559768CC21D5363A00B10102 /* BSImageView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55BCF8E221D52CAE00386752 /* BSImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		559768CD21D5369A00B10102 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */; };
-		559768CE21D5369A00B10102 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E221D52CAE00386752 /* BSImageView.framework */; };
-		559768D021D536DD00B10102 /* BSGridCollectionViewLayout.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		559768D121D536DD00B10102 /* BSImageView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55BCF8E221D52CAE00386752 /* BSImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55BCF8B121D52BA200386752 /* arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF8AA21D52BA200386752 /* arrow_down@3x.png */; };
 		55BCF8B221D52BA200386752 /* ICON-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF8AB21D52BA200386752 /* ICON-LICENSE.txt */; };
 		55BCF8B321D52BA200386752 /* add_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF8AC21D52BA200386752 /* add_photo@2x.png */; };
@@ -49,13 +41,27 @@
 		55BCF8DE21D52C1000386752 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8CC21D52C1000386752 /* PhotosViewController.swift */; };
 		55BCF8DF21D52C1000386752 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8CD21D52C1000386752 /* AlbumsViewController.swift */; };
 		55BCF8E021D52C1000386752 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8CE21D52C1000386752 /* ZoomAnimator.swift */; };
-		55BCF8E421D52CAE00386752 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E221D52CAE00386752 /* BSImageView.framework */; };
-		55BCF8E521D52CAE00386752 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */; };
 		55BCF8EF21D52F3400386752 /* ImagePickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8EB21D52F3400386752 /* ImagePickerViewTests.swift */; };
 		55BCF8F021D52F3400386752 /* ComposedDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8EC21D52F3400386752 /* ComposedDataSourceTests.swift */; };
 		55BCF8F121D52F3400386752 /* CameraDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8ED21D52F3400386752 /* CameraDataSourceTests.swift */; };
 		55BCF8F221D52F3400386752 /* NSIndexSetIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8EE21D52F3400386752 /* NSIndexSetIndexPathTests.swift */; };
 		55BCF8F421D5326A00386752 /* BSImagePicker_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF8F321D5326A00386752 /* BSImagePicker_UI_Tests.swift */; };
+		83ED46DC23AC085C009AEEB4 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46D823AC085C009AEEB4 /* BSImageView.framework */; };
+		83ED46DD23AC085C009AEEB4 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46D823AC085C009AEEB4 /* BSImageView.framework */; };
+		83ED46DE23AC085C009AEEB4 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46D823AC085C009AEEB4 /* BSImageView.framework */; };
+		83ED46DF23AC085C009AEEB4 /* BSImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46D823AC085C009AEEB4 /* BSImageView.framework */; };
+		83ED46E023AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */; };
+		83ED46E123AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */; };
+		83ED46E223AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */; };
+		83ED46E323AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */; };
+		83ED46E423AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */; };
+		83ED46E523AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */; };
+		83ED46E623AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */; };
+		83ED46E723AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */; };
+		83ED46E823AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */; };
+		83ED46E923AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */; };
+		83ED46EA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */; };
+		83ED46EB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				559768CB21D5363A00B10102 /* BSGridCollectionViewLayout.framework in CopyFiles */,
-				559768CC21D5363A00B10102 /* BSImageView.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,9 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				559768D021D536DD00B10102 /* BSGridCollectionViewLayout.framework in CopyFiles */,
 				53A8C2542246049E00AEE452 /* BSImagePicker.framework in CopyFiles */,
-				559768D121D536DD00B10102 /* BSImageView.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +152,6 @@
 		55BCF8CC21D52C1000386752 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		55BCF8CD21D52C1000386752 /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		55BCF8CE21D52C1000386752 /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
-		55BCF8E221D52CAE00386752 /* BSImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSImageView.framework; sourceTree = "<group>"; };
-		55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSGridCollectionViewLayout.framework; sourceTree = "<group>"; };
 		55BCF8E621D52CE300386752 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		55BCF8E721D52CEC00386752 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		55BCF8E821D52CF600386752 /* BSImagePicker.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = BSImagePicker.podspec; sourceTree = "<group>"; };
@@ -161,6 +161,10 @@
 		55BCF8ED21D52F3400386752 /* CameraDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraDataSourceTests.swift; sourceTree = "<group>"; };
 		55BCF8EE21D52F3400386752 /* NSIndexSetIndexPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexSetIndexPathTests.swift; sourceTree = "<group>"; };
 		55BCF8F321D5326A00386752 /* BSImagePicker_UI_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSImagePicker_UI_Tests.swift; sourceTree = "<group>"; };
+		83ED46D823AC085C009AEEB4 /* BSImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSImageView.framework; path = Carthage/Build/iOS/BSImageView.framework; sourceTree = SOURCE_ROOT; };
+		83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = BSImageView.framework.dSYM; path = Carthage/Build/iOS/BSImageView.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = BSGridCollectionViewLayout.framework.dSYM; path = Carthage/Build/iOS/BSGridCollectionViewLayout.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSGridCollectionViewLayout.framework; path = Carthage/Build/iOS/BSGridCollectionViewLayout.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BCF8E521D52CAE00386752 /* BSGridCollectionViewLayout.framework in Frameworks */,
-				55BCF8E421D52CAE00386752 /* BSImageView.framework in Frameworks */,
+				83ED46E823AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */,
+				83ED46DC23AC085C009AEEB4 /* BSImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,8 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559768C921D535DF00B10102 /* BSImageView.framework in Frameworks */,
-				559768C821D535DF00B10102 /* BSGridCollectionViewLayout.framework in Frameworks */,
+				83ED46DD23AC085C009AEEB4 /* BSImageView.framework in Frameworks */,
+				83ED46E923AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */,
 				5569D00721D52A6D00D03631 /* BSImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,9 +191,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559768CD21D5369A00B10102 /* BSGridCollectionViewLayout.framework in Frameworks */,
+				83ED46DE23AC085C009AEEB4 /* BSImageView.framework in Frameworks */,
+				83ED46EA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */,
 				53A8C2532246049E00AEE452 /* BSImagePicker.framework in Frameworks */,
-				559768CE21D5369A00B10102 /* BSImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +201,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83ED46EB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework in Frameworks */,
+				83ED46DF23AC085C009AEEB4 /* BSImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,8 +356,10 @@
 		55BCF8E121D52C7200386752 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55BCF8E321D52CAE00386752 /* BSGridCollectionViewLayout.framework */,
-				55BCF8E221D52CAE00386752 /* BSImageView.framework */,
+				83ED46DB23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework */,
+				83ED46DA23AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM */,
+				83ED46D823AC085C009AEEB4 /* BSImageView.framework */,
+				83ED46D923AC085C009AEEB4 /* BSImageView.framework.dSYM */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -517,6 +525,8 @@
 				55BCF8B621D52BA200386752 /* arrow_down@1x.png in Resources */,
 				55BCF8B121D52BA200386752 /* arrow_down@3x.png in Resources */,
 				55BCF8B721D52BA200386752 /* add_photo@3x.png in Resources */,
+				83ED46E023AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */,
+				83ED46E423AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */,
 				55BCF8B321D52BA200386752 /* add_photo@2x.png in Resources */,
 				55BCF8B221D52BA200386752 /* ICON-LICENSE.txt in Resources */,
 				55BCF8B521D52BA200386752 /* add_photo.png in Resources */,
@@ -527,6 +537,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83ED46E523AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */,
+				83ED46E123AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +546,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83ED46E223AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */,
 				5569D02A21D52B1B00D03631 /* LaunchScreen.storyboard in Resources */,
+				83ED46E623AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */,
 				5569D02721D52B1B00D03631 /* Assets.xcassets in Resources */,
 				5569D02521D52B1B00D03631 /* Main.storyboard in Resources */,
 			);
@@ -544,6 +558,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83ED46E723AC085C009AEEB4 /* BSGridCollectionViewLayout.framework.dSYM in Resources */,
+				83ED46E323AC085C009AEEB4 /* BSImageView.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +794,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -807,6 +824,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -833,6 +851,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -858,6 +877,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -881,6 +901,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -903,6 +924,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -921,6 +943,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2NHS7RD78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -940,6 +966,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2NHS7RD78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

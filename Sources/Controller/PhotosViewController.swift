@@ -32,7 +32,8 @@ final class PhotosViewController : UICollectionViewController {
     var selectLimitReachedClosure: ((_ selectionLimit: Int) -> Void)?
     var totalBytesReachedClosure: ((_ totalBytesLimit: Int) -> Void)?
     var fileTooLargeClosure: ((_ fileSizeLimit: Int) -> Void)?
-
+    let settings: BSImagePickerSettings
+    
     var doneBarButton: UIBarButtonItem?
     var cancelBarButton: UIBarButtonItem?
     var albumTitleView: UIButton?
@@ -44,11 +45,10 @@ final class PhotosViewController : UICollectionViewController {
     private var albumsDataSource: AlbumTableViewDataSource
     private let cameraDataSource: CameraCollectionViewDataSource
     private var composedDataSource: ComposedCollectionViewDataSource?
-    var assetStore: AssetStore
-    
-    let settings: BSImagePickerSettings
-    
-    private let doneBarButtonTitle: String = NSLocalizedString("Add", comment: "Add")
+    private var assetStore: AssetStore
+    private let doneBarButtonTitleFormat: String = NSLocalizedString("Add (%d)", comment: "Add photos to the sheet or form. The placeholder is a number for the count of photos.")
+
+    private let doneBarButtonTitle: String = NSLocalizedString("Add", comment: "Add photos to the sheet or form.")
     
     lazy var albumsViewController: AlbumsViewController = {
         let vc = AlbumsViewController()
@@ -195,13 +195,14 @@ final class PhotosViewController : UICollectionViewController {
     // MARK: Private helper methods
     func updateDoneButton() {
         if assetStore.assets.count > 0 {
-            var doneButtonTitle = ""
+            let doneBarButtonTitle: String
             if assetStore.count <= 99 {
-                doneButtonTitle = "\(doneBarButtonTitle) (\(assetStore.count))"
-            } else {
-                doneButtonTitle = "\(doneBarButtonTitle) (\(NSLocalizedString("99+", comment: "As in, more than 99 items")))"
+                doneBarButtonTitle = String(format: doneBarButtonTitleFormat, assetStore.count)
             }
-            doneBarButton = UIBarButtonItem(title: doneButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
+            else {
+                doneBarButtonTitle = String(format: doneBarButtonTitleFormat, NSLocalizedString("99+", comment: "More than 99 photos"))
+            }
+            doneBarButton = UIBarButtonItem(title: doneBarButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         } else {
             doneBarButton = UIBarButtonItem(title: doneBarButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         }
