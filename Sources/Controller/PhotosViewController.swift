@@ -98,7 +98,7 @@ final class PhotosViewController : UICollectionViewController {
         cancelBarButton?.action = #selector(PhotosViewController.cancelButtonPressed(_:))
         navigationItem.leftBarButtonItem = cancelBarButton
         navigationItem.rightBarButtonItem = doneBarButton
-        navigationItem.title = "Camera Roll"
+        navigationItem.title = NSLocalizedString("Camera Roll", comment: "Title of list of photos on the device")
 
         if let album = albumsDataSource.fetchResults.first?.firstObject {
             initializePhotosDataSource(album)
@@ -199,7 +199,7 @@ final class PhotosViewController : UICollectionViewController {
             if assetStore.count <= 99 {
                 doneButtonTitle = "\(doneBarButtonTitle) (\(assetStore.count))"
             } else {
-                doneButtonTitle = "\(doneBarButtonTitle) (99+)"
+                doneButtonTitle = "\(doneBarButtonTitle) (\(NSLocalizedString("99+", comment: "As in, more than 99 items")))"
             }
             doneBarButton = UIBarButtonItem(title: doneButtonTitle, style: .done, target: doneBarButton?.target, action: doneBarButton?.action)
         } else {
@@ -267,7 +267,8 @@ extension PhotosViewController {
         // We need a cell
         guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell else { return false }
         let asset = photosDataSource.fetchResult.object(at: indexPath.row)
-
+        let totalAssetFileSize = assetStore.totalBytesSelected + asset.fileSizeOnDisk
+        
         // Select or deselect?
         if assetStore.contains(asset) { // Deselect
             // Deselect asset
@@ -294,7 +295,7 @@ extension PhotosViewController {
             deselectionClosure?(asset)
         } else if asset.fileSizeOnDisk > settings.maxFileSize {
             fileTooLargeClosure?(asset.fileSizeOnDisk)
-        } else if assetStore.count < settings.maxNumberOfSelections && (assetStore.totalBytesSelected + asset.fileSizeOnDisk) < settings.maxNumberOfBytes { // Select
+        } else if assetStore.count < settings.maxNumberOfSelections && totalAssetFileSize < settings.maxNumberOfBytes { // Select
             // Select asset if not already selected
             assetStore.append(asset)
 
@@ -314,7 +315,7 @@ extension PhotosViewController {
             selectionClosure?(asset)
         } else if assetStore.count >= settings.maxNumberOfSelections {
             selectLimitReachedClosure?(assetStore.count)
-        } else if (assetStore.totalBytesSelected + asset.fileSizeOnDisk) >= settings.maxNumberOfBytes {
+        } else if totalAssetFileSize >= settings.maxNumberOfBytes {
             totalBytesReachedClosure?(assetStore.totalBytesSelected)
         }
         return false
