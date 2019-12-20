@@ -24,7 +24,7 @@ import UIKit
 import Photos
 import BSGridCollectionViewLayout
 
-final class PhotosViewController : UICollectionViewController {    
+final class PhotosViewController : UICollectionViewController {
     var selectionClosure: ((_ asset: PHAsset) -> Void)?
     var deselectionClosure: ((_ asset: PHAsset) -> Void)?
     var cancelClosure: ((_ assets: [PHAsset]) -> Void)?
@@ -32,6 +32,7 @@ final class PhotosViewController : UICollectionViewController {
     var selectLimitReachedClosure: ((_ selectionLimit: Int) -> Void)?
     var totalBytesReachedClosure: ((_ totalBytesLimit: Int) -> Void)?
     var fileTooLargeClosure: ((_ fileSizeLimit: Int) -> Void)?
+    var errorAccessingMetadataClosure: ((_ message: String) -> Void)?
     let settings: BSImagePickerSettings
     
     var doneBarButton: UIBarButtonItem?
@@ -268,7 +269,8 @@ extension PhotosViewController {
         // We need a cell
         guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell else { return false }
         let asset = photosDataSource.fetchResult.object(at: indexPath.row)
-        let totalAssetFileSize = assetStore.totalBytesSelected + asset.fileSizeOnDisk
+        let fileSizeOnDisk = asset.fileSizeOnDisk(errorHandler: errorAccessingMetadataClosure)
+        let totalAssetFileSize = assetStore.totalBytesSelected + fileSizeOnDisk
         
         // Select or deselect?
         if assetStore.contains(asset) { // Deselect
@@ -294,8 +296,8 @@ extension PhotosViewController {
 
             // Call deselection closure
             deselectionClosure?(asset)
-        } else if asset.fileSizeOnDisk > settings.maxFileSize {
-            fileTooLargeClosure?(asset.fileSizeOnDisk)
+        } else if fileSizeOnDisk > settings.maxFileSize {
+            fileTooLargeClosure?(fileSizeOnDisk)
         } else if assetStore.count < settings.maxNumberOfSelections && totalAssetFileSize < settings.maxNumberOfBytes { // Select
             // Select asset if not already selected
             assetStore.append(asset)

@@ -25,7 +25,8 @@ import Photos
 
 class AssetStore {
     private(set) var assets: [PHAsset]
-
+    var metadataErrorHandler: ((String) -> Void)?
+    
     init(assets: [PHAsset] = []) {
         self.assets = assets
     }
@@ -49,16 +50,17 @@ class AssetStore {
     }
 
     var totalBytesSelected: Int {
-        assets.map({$0.fileSizeOnDisk}).reduce(0, +)
+        assets.map({$0.fileSizeOnDisk(errorHandler: metadataErrorHandler)}).reduce(0, +)
     }
 }
 
 extension PHAsset {
-    var fileSizeOnDisk: Int {
+    func fileSizeOnDisk(errorHandler: ((String) -> Void)? = nil) -> Int {
         let resources = PHAssetResource.assetResources(for: self)
         if let resource = resources.first, let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong, let sizeOnDisk = Int(exactly: Int64(bitPattern: UInt64(unsignedInt64))) {
             return sizeOnDisk
         } else {
+            errorHandler?("Could't get 'fileSize' resource from PHAssetResource.assetResources result")
             return 0
         }
     }

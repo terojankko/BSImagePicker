@@ -24,30 +24,34 @@ import UIKit
 import Photos
 
 /**
-Extension on UIViewController to simply presentation of BSImagePicker
-*/
+ Extension on UIViewController to simply presentation of BSImagePicker
+ */
 public extension UIViewController {
     /**
-        Present a given image picker with closures, any of the closures can be nil.
-    
-        - parameter imagePicker: a BSImagePickerViewController to present
-        - parameter animated: To animate the presentation or not
-        - parameter select: Closure to call when user selects an asset or nil
-        - parameter deselect: Closure to call when user deselects an asset or nil
-        - parameter cancel: Closure to call when user cancels or nil
-        - parameter finish: Closure to call when user finishes or nil
-        - parameter completion: presentation completed closure or nil
-        - parameter selectLimitReached: Closure to call when user reaches selection limit or nil
-    */
+     Present a given image picker with closures, any of the closures can be nil.
+     
+     - parameter imagePicker: a BSImagePickerViewController to present
+     - parameter animated: To animate the presentation or not
+     - parameter select: Closure to call when user selects an asset or nil
+     - parameter deselect: Closure to call when user deselects an asset or nil
+     - parameter cancel: Closure to call when user cancels or nil
+     - parameter finish: Closure to call when user finishes or nil
+     - parameter completion: presentation completed closure or nil
+     - parameter selectLimitReached: Closure to call when user reaches selection limit or nil
+     - parameter totalBytesReached: Closure to call when maximum allowed total bytes have been selected
+     - parameter fileTooLarge: Closure to call when user tries to select a file that's larger than the set maximum size
+     - parameter errorAccessingMetadata: Closure to call when errorAccessingMetadata
+     */
     @objc func bs_presentImagePickerController(_ imagePicker: BSImagePickerViewController,
                                                animated: Bool, select: ((_ asset: PHAsset) -> Void)?,
                                                deselect: ((_ asset: PHAsset) -> Void)?,
                                                cancel: (([PHAsset]) -> Void)?,
                                                finish: (([PHAsset]) -> Void)?,
-                                               completion: (() -> Void)?,
+                                               completion: (() -> Void)? = nil,
                                                selectLimitReached: ((Int) -> Void)? = nil,
                                                totalBytesReached: ((Int) -> Void)? = nil,
-                                               fileTooLarge: ((Int) -> Void)? = nil) {
+                                               fileTooLarge: ((Int) -> Void)? = nil,
+                                               errorAccessingMetadata: ((String) -> Void)? = nil) {
         BSImagePickerViewController.authorize(fromViewController: self) { (authorized) -> Void in
             // Make sure we are authorized before proceding
             guard authorized == true else { return }
@@ -60,7 +64,8 @@ public extension UIViewController {
             imagePicker.photosViewController.selectLimitReachedClosure = selectLimitReached
             imagePicker.photosViewController.totalBytesReachedClosure = totalBytesReached
             imagePicker.photosViewController.fileTooLargeClosure = fileTooLarge
-
+            imagePicker.photosViewController.errorAccessingMetadataClosure = errorAccessingMetadata
+            
             // Present
             self.present(imagePicker, animated: animated, completion: completion)
         }
